@@ -5,25 +5,25 @@ RUN yum update -y && \
     yum install -y httpd && \
     yum search wget && \
     yum install wget -y && \
-    yum install unzip -yum
+    yum install unzip -y
 
-# change firectory
+# change directory
 RUN cd /var/www/html
 
 # download webfiles
-RUN wget https://github.com/alexdevops007/terra-docker/archive/refs/heads/main.zip
+RUN wget https://github.com/azeezsalu/techmax/archive/refs/heads/main.zip
 
 # unzip folder
 RUN unzip main.zip
 
 # copy files into html directory
-RUN cp -r terra-docker-main/* /var/www/html/
+RUN cp -r techmax-main/* /var/www/html/
 
 # remove unwanted folder
-RUN rm -rf terra-docker-main main.zip
+RUN rm -rf techmax-main main.zip
 
-# expose port 80 on the container
+# exposes port 80 on the container
 EXPOSE 80
 
-# set the default application that will start when then container start 
+# set the default application that will start when the container start
 ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
