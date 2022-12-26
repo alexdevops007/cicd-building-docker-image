@@ -4,4 +4,4 @@
 set -eu
 
 # build the docker image
-sudo docker build -t terra-docker .
+docker build -f $IMAGE_TAG/Dockerfile -t $IMAGE_TAG .
